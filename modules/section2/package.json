@@ -1,0 +1,23 @@
+{
+  "name": "fe-microservices-section2",
+  "private": true,
+  "scripts": {
+    "start": "nodemon -x 'yarn build' -w src -e ts,tsx",
+    "test": "cross-env NODE_ENV=test jest",
+    "test:watch": "npm run test -- --watch",
+    "build": "run-p build:*",
+    "build:cjs": "tsc --outDir build",
+    "build:esm": "tsc --outDir build-esm --module ES6",
+    "lint": "eslint . --ext .js,.ts,.tsx"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "yarn lint"
+    }
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "peerDependencies": {
+    "react": "^17.0.1"
+  }
+}
